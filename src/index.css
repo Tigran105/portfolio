@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Light theme */
+  :root {
+    --background: 0 0% 100%;       /* pure white */
+    --foreground: 220 8% 10%;      /* almost black, strong contrast */
+    --border: 220 6% 80%;          /* soft gray for borders */
+    --input: 220 6% 95%;           /* very light input background */
+    --ring: 270 100% 55%;          /* vivid purple accent for active tab, divider */
+    --accent: 300 100% 65%;        /* bright secondary purple/pink accent */
+    --radius: 0.5rem;
+  }
+
+  /* Dark theme */
+  .dark {
+    --background: 270, 100%, 15%;
+    --foreground: 220 8% 95%;      /* bright text */
+    --border: 220 8% 50%;          /* medium gray */
+    --input: 220 8% 30%;           /* input background */
+    --ring: 270 100% 55%;          /* vivid purple accent */
+    --accent: 300 100% 70%;        /* bright purple/pink for hover */
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-feature-settings: "liga" on, "kern" on;
+  -webkit-font-smoothing: antialiased;
+}
+.bg-purple-blue {
+  background: linear-gradient(100deg, hsl(287, 78%, 22%), hsl(220, 71%, 16%));
+}
