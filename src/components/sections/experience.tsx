@@ -6,52 +6,37 @@ import Divider from "../ui/divider.tsx";
 export default function Experience() {
   const timeline = [
     {
-      year: "2019–2020",
-      title: "Frontend Developer",
-      description:
-        "Built task management features, drag-and-drop interactions, dashboards, and real-time components for internal tools and client projects.",
+      year: "08.2020 - 12.2021",
+      title: "BeeOnCode LLC",
+      position: "Frontend Developer",
     },
     {
-      year: "2020–2022",
-      title: "Frontend Engineer — Zangi",
-      description:
-        "Developed secure Electron-based messenger UI, optimized rendering and interactions, implemented subscription logic using Node.js and Stripe.",
+      year: "01.2022 - 12.2022",
+      title: "NWS LAB",
+      position: "Frontend Engineer",
     },
     {
-      year: "2022–2023",
-      title: "React Engineer — Trading & Portfolio Tools",
-      description:
-        "Built trading dashboards using React + Zustand, implemented visualized strategy components, and created dynamic, data-driven interfaces.",
+      year: "09.2022 - 02.2026",
+      title: "Pixeria LAB",
+      position: "React Engineer",
     },
+
     {
-      year: "2023–2024",
-      title: "Frontend Engineer — MSH News",
-      description:
-        "Worked with Next.js SSR, improved content rendering performance, and created responsive, production-ready UI components.",
-    },
-    {
-      year: "2024–2025",
-      title: "UI & Visualization Engineer — Lens Chart Visualization",
-      description:
-        "Specialized in complex UI flows, D3.js data visualizations, Angular components, and medical visualization interfaces with real-time logic.",
-    },
-    {
-      year: "2025–Now",
-      title: "Advanced Frontend Engineer",
-      description:
-        "Building interactive applications, room planners, visualization systems, and modern React architecture. Preparing to launch independent products.",
+      year: "03.2024 - present",
+      title: "UI & Visualization Engineer - Lens Chart Visualization",
+      position: "UI & Visualization Engineer",
     },
   ];
 
   return (
     <Section
       heading="Experience"
-      subheading="My path as a developer — focused, disciplined, and built on consistent improvement."
+      subheading="My path as a developer - focused, disciplined, and built on consistent improvement."
     >
       <Divider className="my-20" />
 
       <div className="space-y-12 sm:space-y-16 md:space-y-20 relative px-4 sm:px-0">
-        {timeline.map((item, index) => (
+        {timeline.reverse().map((item, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, x: -30 }}
@@ -69,7 +54,7 @@ export default function Experience() {
                 transition={{ duration: 0.3 }}
                 className="relative"
               >
-                {index === timeline.length - 1 ? (
+                {index === 0 ? (
                   <CheckCircle
                     className="
                       h-7 w-7 text-blue-500 dark:text-blue-400
@@ -136,7 +121,7 @@ export default function Experience() {
                 viewport={{ once: true }}
                 className="text-sm sm:text-base text-foreground/80 leading-relaxed mt-1 group-hover:text-foreground/90 transition"
               >
-                {item.description}
+                {item.position}
               </motion.p>
             </motion.div>
           </motion.div>

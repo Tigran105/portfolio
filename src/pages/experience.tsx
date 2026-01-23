@@ -1,16 +1,25 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink, ImageIcon } from "lucide-react";
+import {
+  ArrowRight,
+  ExternalLink,
+  // ImageIcon
+} from "lucide-react";
 import Section from "../components/ui/section.tsx";
 import Divider from "../components/ui/divider.tsx";
 
-export default function Projects() {
-  const projects = [
+export default function Experience() {
+  const experience = [
     {
       title: "Room Planner",
       badge: "Coming Soon",
       type: "Interactive Editor",
-      description:
-        "A fully interactive 2D room planner built with React, Fabric.js, and Zustand. Supports drag & drop, scaling, rotation, snapping, saving layouts, and exporting snapshots.",
+      description: (
+        <div className={"text-foreground/70 leading-relaxed"}>
+          A fully interactive 2D room planner built with React, Fabric.js, and
+          Zustand. Supports drag & drop, scaling, rotation, snapping, saving
+          layouts, and exporting snapshots.
+        </div>
+      ),
       tech: ["React", "Fabric.js", "Zustand", "Tailwind", "TypeScript"],
       live: null,
       github: null,
@@ -19,8 +28,14 @@ export default function Projects() {
     {
       title: "Lens Visualization Tool",
       type: "Data Visualization / Medical UI",
-      description:
-        "A medical visualization system displaying corneal depth maps, fluo patterns, radius scaling, and real-time transformations. Built with Angular, D3, and custom geometry logic.",
+
+      description: (
+        <div className={"text-foreground/70 leading-relaxed"}>
+          A fully interactive 2D room planner built with React, Fabric.js, and
+          Zustand. Supports drag & drop, scaling, rotation, snapping, saving
+          layouts, and exporting snapshots.
+        </div>
+      ),
       tech: ["Angular", "D3.js", "TypeScript", "Canvas"],
       live: null,
       github: null,
@@ -29,8 +44,14 @@ export default function Projects() {
     {
       title: "Trading Dashboard (DPS)",
       type: "Dashboard System",
-      description:
-        "React + Zustand dashboard for algorithmic trading workflows. Includes dynamic tables, strategy forms, and visualized trade sequences with responsive architecture.",
+
+      description: (
+        <div className={"text-foreground/70 leading-relaxed"}>
+          A fully interactive 2D room planner built with React, Fabric.js, and
+          Zustand. Supports drag & drop, scaling, rotation, snapping, saving
+          layouts, and exporting snapshots.
+        </div>
+      ),
       tech: ["React", "Zustand", "TypeScript"],
       live: null,
       github: null,
@@ -39,8 +60,14 @@ export default function Projects() {
     {
       title: "Leveren — AI CV Builder",
       type: "AI Application",
-      description:
-        "An AI-powered CV builder and job matching platform. Implemented CV generation flow, job relevance scoring UI, and performance-optimized React components.",
+
+      description: (
+        <div className={"text-foreground/70 leading-relaxed"}>
+          A fully interactive 2D room planner built with React, Fabric.js, and
+          Zustand. Supports drag & drop, scaling, rotation, snapping, saving
+          layouts, and exporting snapshots.
+        </div>
+      ),
       tech: ["React", "Node.js", "AI Integration", "TypeScript"],
       live: null,
       github: null,
@@ -49,8 +76,14 @@ export default function Projects() {
     {
       title: "MSH News — SSR Platform",
       type: "SSR Web App",
-      description:
-        "A high-performance news platform built using Next.js SSR. Implemented routing, dynamic content rendering, and responsive UI layouts optimized for speed.",
+
+      description: (
+        <div className={"text-foreground/70 leading-relaxed"}>
+          A fully interactive 2D room planner built with React, Fabric.js, and
+          Zustand. Supports drag & drop, scaling, rotation, snapping, saving
+          layouts, and exporting snapshots.
+        </div>
+      ),
       tech: ["Next.js", "React", "SSR"],
       live: null,
       github: null,
@@ -59,8 +92,14 @@ export default function Projects() {
     {
       title: "Zangi Messenger Desktop",
       type: "Real-Time App",
-      description:
-        "Secure Electron.js desktop messenger with private chat, calls, and real-time communication. Built reusable UI, improved rendering performance, and integrated Stripe billing.",
+
+      description: (
+        <div className={"text-foreground/70 leading-relaxed"}>
+          A fully interactive 2D room planner built with React, Fabric.js, and
+          Zustand. Supports drag & drop, scaling, rotation, snapping, saving
+          layouts, and exporting snapshots.
+        </div>
+      ),
       tech: ["Electron.js", "React", "Node.js", "Stripe"],
       live: null,
       github: null,
@@ -70,15 +109,15 @@ export default function Projects() {
 
   return (
     <Section
-      heading="Projects"
+      heading="Experience"
       subheading="A collection of UI systems and applications I’ve built — focused on real interaction, clean architecture, and modern engineering."
       background="section"
     >
       <Divider className="my-16 sm:my-20" />
 
       {/* grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 max-w-6xl mx-auto px-4">
-        {projects.map((project, index) => (
+      <div className="grid grid-cols-1 gap-8 sm:gap-10 md:gap-12 max-w-4xl mx-auto px-4">
+        {experience.map((project, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, scale: 0.92 }}
@@ -94,26 +133,26 @@ export default function Projects() {
             "
           >
             {/* image placeholder */}
-            <div
-              className="
-                aspect-video rounded-xl mb-6
-                bg-muted/60 dark:bg-[#1c1c1c]
-                border border-border/60 dark:border-white/10
-                flex items-center justify-center text-foreground/40
-              "
-            >
-              <motion.div
-                initial={{ opacity: 0.4 }}
-                animate={{ opacity: [0.4, 0.6, 0.4] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="flex items-center gap-3"
-              >
-                <ImageIcon size={28} className="sm:size-8" />
-                <span className="text-base sm:text-lg">
-                  Preview Coming Soon
-                </span>
-              </motion.div>
-            </div>
+            {/*<div*/}
+            {/*  className="*/}
+            {/*    aspect-video rounded-xl mb-6*/}
+            {/*    bg-muted/60 dark:bg-[#1c1c1c]*/}
+            {/*    border border-border/60 dark:border-white/10*/}
+            {/*    flex items-center justify-center text-foreground/40*/}
+            {/*  "*/}
+            {/*>*/}
+            {/*  <motion.div*/}
+            {/*    initial={{ opacity: 0.4 }}*/}
+            {/*    animate={{ opacity: [0.4, 0.6, 0.4] }}*/}
+            {/*    transition={{ duration: 2, repeat: Infinity }}*/}
+            {/*    className="flex items-center gap-3"*/}
+            {/*  >*/}
+            {/*    <ImageIcon size={28} className="sm:size-8" />*/}
+            {/*    <span className="text-base sm:text-lg">*/}
+            {/*      Preview Coming Soon*/}
+            {/*    </span>*/}
+            {/*  </motion.div>*/}
+            {/*</div>*/}
 
             {/* title */}
             <h3 className="text-lg sm:text-xl font-semibold relative inline-block mb-1">
@@ -146,9 +185,7 @@ export default function Projects() {
             )}
 
             {/* description */}
-            <p className="text-foreground/70 leading-relaxed">
-              {project.description}
-            </p>
+            {project.description}
 
             {/* tags */}
             <div className="flex flex-wrap gap-3 pt-6">

@@ -29,7 +29,7 @@ export default function Contact() {
       label: "LinkedIn",
       value: "Let’s connect professionally",
       icon: <Linkedin className="h-6 w-6 text-[#0A66C2]" />,
-      link: "https://www.linkedin.com/in/tigran-sargsyan-711bbb22a/",
+      link: "https://www.linkedin.com/in/tigran-sargsyan105/",
       delay: 0.05,
       hasCopy: false,
     },
@@ -152,7 +152,7 @@ export default function Contact() {
         viewport={{ once: true }}
         className="text-center text-foreground/60 text-sm mt-8 sm:mt-14"
       >
-        I’m always open to meaningful projects and good conversations.
+        I’m always open to meaningful experience and good conversations.
       </motion.p>
     </Section>
   );

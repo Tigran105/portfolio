@@ -93,9 +93,9 @@ export default function SignatureProject() {
                 Live Demo — Coming Soon
               </Button>
 
-              <Link to="/projects">
+              <Link to="/experience">
                 <ShimmerButton>
-                  More Projects
+                  More Experience
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </ShimmerButton>
               </Link>

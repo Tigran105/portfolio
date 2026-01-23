@@ -1,40 +1,57 @@
-import {Outlet, NavLink, useLocation} from "react-router-dom";
-import {Button} from "../ui/button.tsx";
-import {Moon, Sun, Menu, X} from "lucide-react";
-import {useThemeStore} from "../../store/theme-store.ts";
-import {motion, AnimatePresence} from "framer-motion";
-import {useState} from "react";
+import { Outlet, NavLink, useLocation } from "react-router-dom";
+import { Button } from "../ui/button.tsx";
+import { Moon, Sun, Menu } from "lucide-react";
+import { useThemeStore } from "../../store/theme-store.ts";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+// import Logo from "@/components/layout/logo.tsx";
+import whiteLogo from "../../assets/whiteLogo.svg";
+import purpleLogo from "../../assets/purpleLogo.svg";
+import MobileNav from "../../components/ui/mobileNavbar.tsx";
 
 export default function AppLayout() {
-  const {theme, toggleTheme} = useThemeStore();
+  const { theme, toggleTheme } = useThemeStore();
   const location = useLocation();
   const [open, setOpen] = useState(false);
 
   const navItems = [
-    {to: "/", label: "Home"},
-    {to: "/about", label: "About"},
-    {to: "/projects", label: "Projects"},
-    {to: "/contact", label: "Contact"},
+    { to: "/", label: "Home" },
+    { to: "/about", label: "About" },
+    { to: "/experience", label: "Experience" },
+    { to: "/contact", label: "Contact" },
   ];
-
+  //todo chatgpt: seo optimization for shared links (meta tags) for each page in react router dom v6
+  //   OG INPORMATION
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
       {/* NAVBAR */}
-      <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
-        <div
-          className="flex items-center gap-8 px-6 h-14 rounded-full bg-background/70 backdrop-blur-xl shadow-lg border border-border">
+      <MobileNav navItems={navItems} open={open} setOpen={setOpen} />
 
+      {/* MOBILE MENU OVERLAY */}
+      <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[89vw] md:w-auto">
+        <div
+          className="flex items-center gap-8 px-6 h-14 rounded-full bg-background/70 backdrop-blur-md
+                      shadow-lg border border-border w-full justify-between"
+        >
           {/* Logo */}
           <NavLink
             to="/"
+            onClick={() => window.scrollTo(0, 0)}
             className="text-sm font-semibold tracking-wide text-foreground hover:opacity-80 transition"
           >
-            Tigran
-            <span className="text-violet-500">.dev</span>
+            {/*Tigran Portfolio Logo*/}
+            <img
+              src={theme === "light" ? purpleLogo : whiteLogo}
+              alt="logo"
+              className={"w-[45px]"}
+            />
           </NavLink>
 
           {/* Vertical divider */}
-          <div className="hidden md:block h-6 w-px bg-border"/>
+          <div className="hidden md:block h-6 w-px bg-border" />
 
           {/* Desktop navigation */}
           <nav className="hidden md:flex items-center gap-5 text-sm">
@@ -42,27 +59,31 @@ export default function AppLayout() {
               <NavLink
                 key={item.to}
                 to={item.to}
-                className={({isActive}) =>
+                className={({ isActive }) =>
                   isActive
-                    ? "text-violet-500 font-medium"
-                    : "text-foreground/60 hover:text-violet-400 transition"
+                    ? "text-gradient font-bold"
+                    : "text-foreground/60 hover:text-violet-400 transition font-medium"
                 }
               >
                 {item.label}
               </NavLink>
             ))}
           </nav>
-
+          {/*Page name for Mobile*/}
+          <div className="md:hidden flex-1 text-center text-sm text-gradient font-bold ml-2">
+            {navItems.find((item) => item.to === location.pathname)?.label ||
+              ""}
+          </div>
           {/* Vertical divider */}
-          <div className="hidden md:block h-6 w-px bg-border ml-2"/>
+          <div className="hidden md:block h-6 w-px bg-border ml-2" />
 
           {/* Actions */}
           <div className="flex items-center gap-2 ">
             <Button variant="ghost" size="icon" onClick={toggleTheme}>
               {theme === "light" ? (
-                <Moon className="h-4 w-4"/>
+                <Moon className="h-4 w-4" />
               ) : (
-                <Sun className="h-4 w-4"/>
+                <Sun className="h-4 w-4" />
               )}
             </Button>
 
@@ -70,89 +91,24 @@ export default function AppLayout() {
               className="md:hidden p-1 hover:opacity-70 transition"
               onClick={() => setOpen(true)}
             >
-              <Menu className="h-5 w-5"/>
+              <Menu className="h-5 w-5" />
             </button>
           </div>
-
         </div>
       </header>
 
-
-      {/* MOBILE MENU OVERLAY */}
-      <AnimatePresence>
-        {open && (
-          <>
-            {/* Background blur overlay */}
-            <motion.div
-              className="
-                fixed inset-0
-                bg-black/20 dark:bg-black/30
-                backdrop-blur-md
-                z-40
-              "
-              initial={{opacity: 0}}
-              animate={{opacity: 1}}
-              exit={{opacity: 0}}
-              onClick={() => setOpen(false)}
-            />
-
-            {/* Slide-in menu panel */}
-            <motion.div
-              className="
-                fixed top-0 right-0 h-full w-60
-                bg-white/95 backdrop-blur-xl
-                dark:bg-[#111]/90
-                backdrop-blur-xl
-                border-l border-border/60 dark:border-white/10
-                shadow-xl
-                z-50 flex flex-col p-6 gap-6
-              "
-              initial={{x: 300, opacity: 0}}
-              animate={{x: 0, opacity: 1}}
-              exit={{x: 300}}
-              transition={{type: "spring", stiffness: 230, damping: 28}}
-            >
-              <div className="flex justify-between items-center">
-                <h3 className="text-lg font-semibold">Menu</h3>
-                <button onClick={() => setOpen(false)}>
-                  <X className="h-6 w-6"/>
-                </button>
-              </div>
-
-              <div className="flex flex-col gap-4 mt-4">
-                {navItems.map((item) => (
-                  <NavLink
-                    key={item.to}
-                    to={item.to}
-                    onClick={() => setOpen(false)}
-                    className={({isActive}) =>
-                      isActive
-                        ? "text-primary font-medium"
-                        : "text-foreground/80 hover:text-primary transition"
-                    }
-                  >
-                    {item.label}
-                  </NavLink>
-                ))}
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-
       {/* PAGE TRANSITION */}
-      <div className={`${theme === "light" ? "bg-white" : "bg-purple-blue"}`}>
-
+      <div className={`bg-purple-blue`}>
         <AnimatePresence mode="wait">
           <motion.main
             key={location.pathname}
-            initial={{opacity: 0, y: 10}}
-            animate={{opacity: 1, y: 0}}
-            exit={{opacity: 0, y: -10}}
-            transition={{duration: 0.3}}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
             className="flex-1"
           >
-            <Outlet/>
+            <Outlet />
           </motion.main>
         </AnimatePresence>
       </div>

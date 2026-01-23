@@ -1,59 +1,60 @@
-import { motion } from "framer-motion";
-import {useNavigate} from "react-router-dom";
+import { useThemeStore } from "../../store/theme-store.ts";
+import { useState } from "react";
+import video from "../../assets/heroBackground.mp4";
 
 export default function Hero() {
-  const navigate = useNavigate();
-  return (
-    <section className="relative w-full min-h-[80vh] md:min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-10 md:pt-0 pb-10 md:pb-20  text-foreground">
+  const { theme } = useThemeStore();
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 text-center px-4 max-w-3xl"
+  return (
+    <section className="relative h-screen w-full overflow-hidden">
+      {/*VERSION 1*/}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        onLoadedData={() => setVideoLoaded(true)}
+        className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500"
+        style={{ opacity: videoLoaded ? 1 : 0 }}
       >
-        <h1 className="text-4xl md:text-5xl font-extrabold">
-          Hey, I'm{" "}
-          <span className="bg-gradient-to-r from-purple-500 to-blue-400 text-transparent bg-clip-text">
+        <source src={video} type="video/mp4" />
+      </video>
+      <div
+        className={`absolute inset-0 ${
+          theme === "dark" ? "bg-black/50" : "bg-white/50"
+        }`}
+      />
+      {/*------*/}
+
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+        <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-4 animate-fade-in">
+          Hi, I’m{" "}
+          <span
+            className={`text-gradient ${theme === "dark" ? "" : "text-bold"}`}
+          >
             Tigran
           </span>
-          .
         </h1>
-
-        <p className="text-2xl md:text-3xl font-semibold mt-4">
-          I craft{" "}
-          <span className="bg-gradient-to-r from-purple-500 to-blue-400 text-transparent bg-clip-text">
-            engaging, modern web experiences
-          </span>{" "}
-          for users everywhere.
+        <p className="text-xl md:text-2xl text-foreground mb-8 max-w-2xl">
+          Full-Stack Developer building modern web apps
         </p>
-
-        <p className="text-foreground/70 mt-6 leading-relaxed md:max-w-2xl mx-auto text-lg md:text-xl">
-          From interactive dashboards and planners to visualization tools and
-          sleek web apps, I build **React + TypeScript applications** with
-          clean architecture, scalable UI, and smooth performance.
-        </p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="mt-8 flex justify-center gap-4"
-        >
-          <button
-            onClick={() => navigate("/projects")}
-            className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-400 text-white rounded-full font-medium hover:scale-105 transition-transform"
-          >
-            View My Work
-          </button>
-          <button
-            onClick={() => navigate("/contact")}
-            className="px-6 py-3 border border-foreground rounded-full font-medium hover:bg-foreground/10 transition"
-          >
-            Get In Touch
-          </button>
-        </motion.div>
-      </motion.div>
+        <div className={"mb-6 text-foreground space-y-2"}>
+          <p>I specialize in React, TypeScript, Node.js and modern UI.</p>
+          <p>Focused on clean code, performance and real-world solutions.</p>
+          <p>React • TypeScript • Node.js • Tailwind</p>
+        </div>
+        <p></p>
+        {/*<div className="flex gap-4">*/}
+        {/*  <button className="px-8 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-100 transition">*/}
+        {/*    View Experience*/}
+        {/*  </button>*/}
+        {/*  <button*/}
+        {/*    className="px-8 py-3 border-2 border-white text-foreground font-semibold rounded-lg hover:bg-white/10 transition">*/}
+        {/*    Contact Me*/}
+        {/*  </button>*/}
+        {/*</div>*/}
+      </div>
     </section>
   );
 }

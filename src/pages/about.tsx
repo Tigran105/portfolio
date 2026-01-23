@@ -166,7 +166,7 @@ export default function About() {
             <div className="flex items-center gap-4">
               <div className="w-1 h-5 sm:h-6 rounded-full bg-primary/70" />
               <h2 className="text-xl sm:text-2xl font-semibold">
-                {block.title}
+                <span className={"text-gradient"}>{block.title}</span>
               </h2>
             </div>
 

@@ -11,6 +11,10 @@
     --input: 220 6% 95%;           /* very light input background */
     --ring: 270 100% 55%;          /* vivid purple accent for active tab, divider */
     --accent: 300 100% 65%;        /* bright secondary purple/pink accent */
+    --gradient-from: 270 80% 40%;  /* dark purple for light mode */
+    --gradient-to: 220 90% 35%;    /* dark blue for light mode */
+    --bg-gradient-from: 287 78% 92%; /* light purple-blue for light mode */
+    --bg-gradient-to: 220 71% 85%;   /* light blue for light mode */
     --radius: 0.5rem;
   }
 
@@ -22,6 +26,10 @@
     --input: 220 8% 30%;           /* input background */
     --ring: 270 100% 55%;          /* vivid purple accent */
     --accent: 300 100% 70%;        /* bright purple/pink for hover */
+    --gradient-from: 270 100% 65%; /* bright purple for dark mode */
+    --gradient-to: 210 100% 65%;   /* bright blue for dark mode */
+    --bg-gradient-from: 287 78% 22%; /* dark purple-blue for dark mode */
+    --bg-gradient-to: 220 71% 16%;   /* dark blue for dark mode */
   }
 
   body {
@@ -41,6 +49,18 @@ body {
   font-feature-settings: "liga" on, "kern" on;
   -webkit-font-smoothing: antialiased;
 }
+
 .bg-purple-blue {
-  background: linear-gradient(100deg, hsl(287, 78%, 22%), hsl(220, 71%, 16%));
+  background: linear-gradient(100deg, hsl(var(--bg-gradient-from)), hsl(var(--bg-gradient-to)));
+}
+
+.text-gradient {
+  background: linear-gradient(to right, hsl(var(--gradient-from)), hsl(var(--gradient-to)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.example{
+  color: #4d14a2;
 }

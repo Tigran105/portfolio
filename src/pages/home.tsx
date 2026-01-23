@@ -1,6 +1,5 @@
 import Hero from "../components/sections/hero.tsx";
 import WhatIDo from "../components/sections/what-i-do.tsx";
-import SignatureProject from "../components/sections/signature-project.tsx";
 import Skills from "../components/sections/skills.tsx";
 import Experience from "../components/sections/experience.tsx";
 
@@ -9,7 +8,6 @@ export default function Home() {
     <>
       <Hero />
       <WhatIDo />
-      <SignatureProject />
       <Skills />
       <Experience />
     </>

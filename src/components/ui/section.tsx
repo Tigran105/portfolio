@@ -58,8 +58,8 @@ export default function Section({
             viewport={{ once: true }}
             className={`${alignClasses} space-y-3 mb-14 md:mb-20 mt-10`}
           >
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight ">
-              {heading}
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+              <span className={'text-gradient'}>{heading}</span>
             </h2>
 
             {subheading && (
