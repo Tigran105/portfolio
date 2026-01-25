@@ -1,32 +1,20 @@
 import { motion } from "framer-motion";
-import { CheckCircle, Circle } from "lucide-react";
+import { CheckCircle, Circle, ArrowUpRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Section from "../ui/section.tsx";
 import Divider from "../ui/divider.tsx";
+import { useData } from "../../store/data.ts";
 
 export default function Experience() {
-  const timeline = [
-    {
-      year: "08.2020 - 12.2021",
-      title: "BeeOnCode LLC",
-      position: "Frontend Developer",
-    },
-    {
-      year: "01.2022 - 12.2022",
-      title: "NWS LAB",
-      position: "Frontend Engineer",
-    },
-    {
-      year: "09.2022 - 02.2026",
-      title: "Pixeria LAB",
-      position: "React Engineer",
-    },
+  const experience = useData((state) => state.experience);
+  const navigate = useNavigate();
 
-    {
-      year: "03.2024 - present",
-      title: "UI & Visualization Engineer - Lens Chart Visualization",
-      position: "UI & Visualization Engineer",
-    },
-  ];
+  const handleViewAll = (itemId?: string) => {
+    navigate("/experience", {
+      state: { scrollToId: itemId },
+      // OR as URL parameter: navigate(`/experience?item=${itemId}`);
+    });
+  };
 
   return (
     <Section
@@ -36,9 +24,9 @@ export default function Experience() {
       <Divider className="my-20" />
 
       <div className="space-y-12 sm:space-y-16 md:space-y-20 relative px-4 sm:px-0">
-        {timeline.reverse().map((item, index) => (
+        {experience.map((item, index) => (
           <motion.div
-            key={index}
+            key={item.time}
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: index * 0.15 }}
@@ -73,7 +61,7 @@ export default function Experience() {
               </motion.div>
 
               {/* Fade-in connector line */}
-              {index !== timeline.length - 1 && (
+              {index !== experience.length - 1 && (
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -88,41 +76,94 @@ export default function Experience() {
               whileHover={{ x: 3 }}
               transition={{ duration: 0.2 }}
               className="
-                p-2 rounded-lg
+                p-2 rounded-lg w-full
                 transition
                 group-hover:bg-muted/20
                 dark:group-hover:bg-white/5
               "
+              id={`experience-${index}`} // Add ID for scrolling
             >
               <motion.div
                 initial={{ opacity: 0, y: 5 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.15 + 0.05 }}
                 viewport={{ once: true }}
-                className="text-sm text-foreground/60"
+                className="text-sm text-foreground/60 mb-1"
               >
-                {item.year}
+                {item.time}
               </motion.div>
 
-              <motion.h3
-                initial={{ opacity: 0, y: 5 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.15 + 0.1 }}
-                viewport={{ once: true }}
-                className="text-lg sm:text-xl font-semibold group-hover:text-foreground transition"
-              >
-                {item.title}
-              </motion.h3>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                <motion.h3
+                  initial={{ opacity: 0, y: 5 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.15 + 0.1 }}
+                  viewport={{ once: true }}
+                  className="text-lg sm:text-xl font-semibold group-hover:text-foreground transition"
+                >
+                  {item.company}
+                </motion.h3>
+
+                {item.type && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 5 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.15 + 0.12 }}
+                    viewport={{ once: true }}
+                    className="inline-flex"
+                  >
+                    <span
+                      className="
+                      text-xs sm:text-sm px-3 py-1 rounded-full
+                      bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300
+                      border border-blue-200 dark:border-blue-800
+                      font-medium
+                      shadow-sm
+                    "
+                    >
+                      {item.type}
+                    </span>
+                  </motion.div>
+                )}
+              </div>
 
               <motion.p
                 initial={{ opacity: 0, y: 5 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.15 + 0.15 }}
                 viewport={{ once: true }}
-                className="text-sm sm:text-base text-foreground/80 leading-relaxed mt-1 group-hover:text-foreground/90 transition"
+                className="text-sm sm:text-base text-foreground/80 leading-relaxed mb-4 group-hover:text-foreground/90 transition"
               >
-                {item.position}
+                {item.role}
               </motion.p>
+
+              {/* View Details Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 5 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
+                viewport={{ once: true }}
+              >
+                <button
+                  onClick={() => handleViewAll(`experience-${item.id}`)}
+                  className="
+                    inline-flex items-center gap-2
+                    text-sm font-medium
+                    px-4 py-2 rounded-lg
+                    bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700
+                    dark:from-blue-600 dark:to-blue-700 dark:hover:from-blue-700 dark:hover:to-blue-800
+                    text-white
+                    transition-all duration-300
+                    hover:shadow-lg hover:shadow-blue-500/20 dark:hover:shadow-blue-500/30
+                    hover:translate-y-[-1px]
+                    active:translate-y-0
+                    group/btn
+                  "
+                >
+                  <span>View Details</span>
+                  <ArrowUpRight className="h-4 w-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                </button>
+              </motion.div>
             </motion.div>
           </motion.div>
         ))}

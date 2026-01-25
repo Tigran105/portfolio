@@ -46,7 +46,7 @@ export default function AppLayout() {
             <img
               src={theme === "light" ? purpleLogo : whiteLogo}
               alt="logo"
-              className={"w-[45px]"}
+              className={"w-[40px]"}
             />
           </NavLink>
 

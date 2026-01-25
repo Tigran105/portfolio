@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import Section from "../components/ui/section.tsx";
 import Divider from "../components/ui/divider.tsx";
-import myPhoto from "../assets/myphoto.jpg";
+import myPhoto from "../assets/myPhoto2.jpg";
+// import { useData } from "../store/data.ts";
 
 export default function About() {
+  // const skills = useData((state) => state.skills);
   const skills = [
     "React",
     "Next.js",

@@ -61,6 +61,14 @@ body {
   background-clip: text;
   color: transparent;
 }
+.aaaaa{
+  background: linear-gradient(to right, #6614b8, #093eaa);
+
+
+}
+.bb{
+  background: linear-gradient(to right, #a64dff, #4da6ff );
+}
 .example{
   color: #4d14a2;
 }
