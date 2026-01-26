@@ -9,19 +9,16 @@ export default function About() {
   const skills = [
     "React",
     "Next.js",
-    "Angular",
     "TypeScript",
-    "Zustand",
-    "Redux",
-    "Tailwind",
-    "shadcn/ui",
-    "Node.js",
-    "Electron.js",
-    "Fabric.js",
-    "D3.js",
-    "Canvas APIs",
-    "Design Systems",
-    "State Architecture",
+    "UI Engineering & Design Systems",
+    "Canvas",
+    "Three.js",
+    "Interactive Graphics",
+    "API",
+    "Auth & Payments Integration",
+    "Clean Code",
+    "Performance",
+    "Refactoring",
   ];
 
   const sections = [
@@ -30,17 +27,19 @@ export default function About() {
       content: (
         <>
           <p className="text-sm sm:text-base text-foreground/80 leading-relaxed">
-            I’m Tigran — a frontend engineer focused on building clean,
-            interactive, and modern interfaces. I care deeply about structure,
-            user experience, and practical product value. I love solving complex
-            UI problems and creating smooth, meaningful user interactions.
+            I’m Tigran - Front-End Developer with 5+ years of experience in
+            React and React Native, building web and mobile applications.
+            Skilled in interactive UIs, including 3D experiences with Three.js,
+            and integrating analytics and payment solutions like Stripe.
+            Passionate about delivering user-focused solutions that drive
+            business value.
           </p>
 
           <p className="text-sm sm:text-base text-foreground/80 leading-relaxed mt-4">
-            I’m a product-oriented engineer who enjoys working on advanced
-            interfaces — planners, dashboards, visualization systems, and
-            internal tools. I focus on modular architecture, predictable state
-            management, and UI that feels intentional and fast.
+            Building fast, intentional interfaces with a focus on modularity and
+            performance. I enjoy solving complex UI challenges in planners and
+            internal tools, leveraging structured state management to create
+            seamless user experiences.
           </p>
         </>
       ),
@@ -50,20 +49,18 @@ export default function About() {
       content: (
         <>
           <p className="text-sm sm:text-base text-foreground/80 leading-relaxed">
-            I value clarity, direct communication, and calm execution. I believe
-            in clean architecture, component-driven development, and writing
-            code that is pleasant to maintain.{" "}
-            <span className="text-foreground font-medium">
-              Quality over hype. Consistency over shortcuts.
-            </span>
+            I approach problems with a product mindset - first understanding the
+            user and the goal, then designing a clear and maintainable solution.
           </p>
-
           <p className="text-sm sm:text-base text-foreground/80 leading-relaxed mt-4">
-            When solving problems, I break them down, understand the core
-            requirement, and design a scalable, simple solution.{" "}
-            <span className="text-foreground font-medium">
-              If something is unclear, I simplify it step by step.
-            </span>
+            I value clean architecture, reusable components, and thoughtful
+            interactions. I iterate quickly, test assumptions early, and pay
+            attention to performance, edge cases, and visual details.
+          </p>
+          <p className="text-sm sm:text-base text-foreground/80 leading-relaxed mt-4">
+            I work comfortably both independently and in collaboration with
+            designers and product teams, translating ideas into polished,
+            production-ready interfaces.
           </p>
         </>
       ),
@@ -92,11 +89,11 @@ export default function About() {
       title: "What I Value",
       content: (
         <ul className="text-sm sm:text-base list-disc pl-6 space-y-2 text-foreground/80">
-          <li>Building scalable, maintainable architecture</li>
-          <li>Clean code and meaningful UI</li>
-          <li>Consistency over motivation</li>
-          <li>Honest communication</li>
-          <li>Stable routines and long-term focus</li>
+          <li>Clarity and usability in every interface</li>
+          <li>Clean, maintainable, scalable code</li>
+          <li>Collaboration and teamwork</li>
+          <li>Continuous learning and growth</li>
+          <li>Performance and smooth interactions</li>
           <li>Discipline and ownership</li>
           <li>Solving problems the right way</li>
         </ul>
@@ -106,12 +103,10 @@ export default function About() {
       title: "A Personal Note",
       content: (
         <p className="text-sm sm:text-base text-foreground/80 leading-relaxed">
-          I try to build life and software with intention — clarity, good work,
-          and real progress. I care about improving every day and creating
-          clean, practical solutions that help people.{" "}
-          <span className="text-foreground font-medium">
-            My goal is to grow consistently and build products that matter.
-          </span>
+          I focus on building meaningful, intuitive, and high-quality
+          interfaces. I enjoy learning new technologies, exploring visual
+          systems, and turning complex ideas into simple, enjoyable experiences
+          for users.
         </p>
       ),
     },
@@ -120,7 +115,7 @@ export default function About() {
   return (
     <Section
       heading="About Me"
-      subheading="A frontend engineer building meaningful, high-quality interfaces."
+      subheading="Frontend engineer creating interactive, scalable interfaces where design and engineering meet."
       background="blobs-top"
     >
       <Divider className="my-16 sm:my-20" />

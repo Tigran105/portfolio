@@ -1,36 +1,53 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Copy } from "lucide-react";
+import { Mail, Linkedin, Github, Copy, Phone } from "lucide-react";
 import Section from "../components/ui/section.tsx";
 import Divider from "../components/ui/divider.tsx";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
 
-  const copyToClipboard = (text: string) => {
+  const copyToClipboard = (text: string, type: "email" | "phone") => {
     if (navigator && navigator.clipboard) {
       navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
+      if (type === "email") {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1500);
+      } else {
+        setCopiedPhone(true);
+        setTimeout(() => setCopiedPhone(false), 1500);
+      }
     }
   };
 
   const items = [
+    {
+      label: "Phone",
+      value: "Call or send me a message",
+      real: "+37443150200",
+      icon: <Phone className="h-6 w-6 text-green-500 dark:text-green-400" />,
+      link: "tel:+37443150200",
+      delay: 0,
+      hasCopy: true,
+      copyText: "+37443150200",
+    },
     {
       label: "Email",
       value: "Send me an email",
       real: "tigran.sargsyan105@gmail.com",
       icon: <Mail className="h-6 w-6 text-blue-500 dark:text-blue-400" />,
       link: "mailto:tigran.sargsyan105@gmail.com",
-      delay: 0,
+      delay: 0.05,
       hasCopy: true,
+      copyText: "tigran.sargsyan105@gmail.com",
     },
     {
       label: "LinkedIn",
       value: "Let’s connect professionally",
       icon: <Linkedin className="h-6 w-6 text-[#0A66C2]" />,
       link: "https://www.linkedin.com/in/tigran-sargsyan105/",
-      delay: 0.05,
+      delay: 0.1,
       hasCopy: false,
     },
     {
@@ -38,17 +55,9 @@ export default function Contact() {
       value: "See my code and open-source work",
       icon: <Github className="h-6 w-6 text-foreground" />,
       link: "https://github.com/Tigran105/",
-      delay: 0.1,
+      delay: 0.15,
       hasCopy: false,
     },
-    // {
-    //   label: "Telegram",
-    //   value: "@HAYK944",
-    //   icon: <Send className="h-6 w-6 text-sky-500" />,
-    //   link: "https://t.me/HAYK944",
-    //   delay: 0.15,
-    //   hasCopy: false,
-    // },
   ];
 
   return (
@@ -60,7 +69,7 @@ export default function Contact() {
       <Divider className="my-6 sm:my-10" />
 
       <p className="text-center text-foreground/70 mb-8 text-sm sm:text-base">
-        I reply quickly. Don’t hesitate to reach out.
+        I reply quickly. Don't hesitate to reach out.
       </p>
 
       <div className="space-y-6 sm:space-y-7 md:space-y-8 max-w-5xl mx-auto px-4">
@@ -68,8 +77,16 @@ export default function Contact() {
           <motion.a
             key={item.label}
             href={item.link}
-            target="_blank"
-            rel="noreferrer"
+            target={
+              item.label === "Email" || item.label === "Phone"
+                ? "_self"
+                : "_blank"
+            }
+            rel={
+              item.label === "Email" || item.label === "Phone"
+                ? ""
+                : "noreferrer"
+            }
             aria-label={`Open ${item.label}`}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{
@@ -112,7 +129,7 @@ export default function Contact() {
                 <p className="text-sm sm:text-base text-foreground/70">
                   {item.value}
                 </p>
-                {item.label === "Email" && (
+                {(item.label === "Email" || item.label === "Phone") && (
                   <span className="text-xs text-foreground/50 mt-1">
                     {item.real}
                   </span>
@@ -121,11 +138,15 @@ export default function Contact() {
             </div>
 
             {/* copy button */}
-            {item.hasCopy && item.real && (
+            {item.hasCopy && item.copyText && (
               <motion.button
                 onClick={(e) => {
                   e.preventDefault();
-                  copyToClipboard(item.real);
+                  e.stopPropagation();
+                  copyToClipboard(
+                    item.copyText!,
+                    item.label === "Email" ? "email" : "phone"
+                  );
                 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -134,9 +155,16 @@ export default function Contact() {
                   px-3 py-1 rounded-md text-xs
                   bg-blue-500/20 text-blue-500
                   hover:bg-blue-500/30 transition
+                  min-w-[70px] justify-center
                 "
               >
-                {copied ? "Copied!" : <Copy className="h-4 w-4" />}
+                {item.label === "Email" && copied ? "Copied!" : null}
+                {item.label === "Phone" && copiedPhone ? "Copied!" : null}
+                {(!copied && !copiedPhone) ||
+                (item.label === "Email" && !copied) ||
+                (item.label === "Phone" && !copiedPhone) ? (
+                  <Copy className="h-4 w-4" />
+                ) : null}
               </motion.button>
             )}
           </motion.a>
@@ -152,7 +180,7 @@ export default function Contact() {
         viewport={{ once: true }}
         className="text-center text-foreground/60 text-sm mt-8 sm:mt-14"
       >
-        I’m always open to meaningful experience and good conversations.
+        I'm always open to meaningful experience and good conversations.
       </motion.p>
     </Section>
   );

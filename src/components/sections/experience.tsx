@@ -81,7 +81,7 @@ export default function Experience() {
                 group-hover:bg-muted/20
                 dark:group-hover:bg-white/5
               "
-              id={`experience-${index}`} // Add ID for scrolling
+              id={`experience-${item.id}`}
             >
               <motion.div
                 initial={{ opacity: 0, y: 5 }}

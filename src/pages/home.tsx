@@ -2,6 +2,7 @@ import Hero from "../components/sections/hero.tsx";
 import WhatIDo from "../components/sections/what-i-do.tsx";
 import Skills from "../components/sections/skills.tsx";
 import Experience from "../components/sections/experience.tsx";
+import Education from "../components/sections/education.tsx";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <WhatIDo />
       <Skills />
       <Experience />
+      <Education />
     </>
   );
 }

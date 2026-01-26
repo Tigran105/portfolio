@@ -6,33 +6,32 @@ import Section from "../ui/section.tsx";
 const items = [
   {
     icon: <LayoutDashboard size={22} />,
-    title: "Advanced UI & Dashboards",
+    title: "Complex Interfaces & Data Dashboards",
     description:
-      "I design and build complex dashboards, admin tools, and data-driven interfaces with clean architecture and smooth UX.",
+      "Design and development of advanced dashboards, admin panels, and data-heavy interfaces with structured architecture and polished user experience.",
   },
   {
     icon: <Boxes size={22} />,
-    title: "Room Planners & Visual Editors",
+    title: "Interactive Planners & Visual Editors",
     description:
-      "Expertise in drag-and-drop systems, geometric calculations, scaling logic, canvas rendering, and interactive 2D/3D visualization.",
+      "Building drag-and-drop planners with precise geometry, scaling logic, canvas rendering, and interactive 2D/3D visual systems.",
   },
   {
     icon: <PenTool size={22} />,
-    title: "Frontend Architecture & UX",
+    title: "UI Architecture & User Experience",
     description:
-      "Clean, maintainable component architecture with strong UI/UX sense, seamless interactions, and modern design patterns.",
+      "Well-structured, scalable component systems with a strong focus on usability, smooth interactions, and modern UX patterns.",
   },
   {
     icon: <Code size={22} />,
-    title: "Modern Frontend Engineering",
+    title: "Advanced Frontend Development",
     description:
-      "Deep experience with React, Angular, Zustand, TanStack Query, D3, Canvas, Tailwind, and Framer Motion.",
+      "Hands-on experience with React, Next.js, Redux, Canvas, Tailwind CSS, and Framer Motion, focused on building performant and scalable user interfaces.",
   },
 ];
-
 export default function WhatIDo() {
   return (
-    <Section heading="What I Do" subheading="My core areas of specialization.">
+    <Section heading="What I Do" subheading="My primary areas of expertise">
       <div className="max-w-6xl mx-auto">
         <Divider />
 

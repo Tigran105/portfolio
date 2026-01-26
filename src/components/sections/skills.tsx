@@ -7,22 +7,22 @@ import Section from "../ui/section.tsx";
 export default function Skills() {
   const skillGroups = [
     {
-      title: "Frontend",
+      title: "Frontend Development",
       icon: <Code2 className="h-6 w-6" />,
       skills: [
-        "React",
-        "Angular",
-        "Next.js",
+        "JavaScript",
         "TypeScript",
+        "React",
+        "Next.js",
+        "React Native",
         "Redux",
         "Zustand",
         "Tailwind",
-        "shadcn/ui",
-        "TanStack Query",
+        "Testing (Jest)",
       ],
     },
     {
-      title: "UI Engineering",
+      title: "UI / UX Engineering",
       icon: <LayoutGrid className="h-6 w-6" />,
       skills: [
         "Component Architecture",
@@ -30,39 +30,41 @@ export default function Skills() {
         "Animations",
         "Responsive Design",
         "Interaction Design",
+        "Mobile-First Layout",
       ],
     },
     {
-      title: "Visualization",
+      title: "Data Visualization",
       icon: <Sparkles className="h-6 w-6" />,
       skills: [
-        "Canvas",
-        "Fabric.js",
-        "D3.js",
+        "HTML Canvas",
         "Konva (learning)",
-        "Custom Editors",
+        "Three.js",
+        "WebGL (basic)",
+        "Coordinate Systems",
+        "Drag & Drop Logic",
         "2D / 3D Interaction Logic",
       ],
     },
     {
-      title: "Backend & Tools",
+      title: "Engineering & Tools",
       icon: <Cpu className="h-6 w-6" />,
       skills: [
-        "Node.js",
-        "Express.js",
-        "REST APIs",
-        "Electron.js",
+        "REST API Integration",
+        "OAuth 2.0",
+        "Google Login",
+        "Facebook Login",
+        "Stripe Payments Integration",
         "Git / GitLab",
         "Refactoring",
         "Product Thinking",
       ],
     },
   ];
-
   return (
     <Section
       heading="Skills"
-      subheading="A mix of engineering, UI craftsmanship, and clean architectural thinking."
+      subheading="Where engineering meets UI and clean architecture"
     >
       <Divider />
 
