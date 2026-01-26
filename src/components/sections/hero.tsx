@@ -37,12 +37,12 @@ export default function Hero() {
           </span>
         </h1>
         <p className="text-xl md:text-2xl text-foreground mb-8 max-w-2xl">
-          Full-Stack Developer building modern web apps
+          Front-End Developer crafting immersive web experiences
         </p>
-        <div className={"mb-6 text-foreground space-y-2"}>
-          <p>I specialize in React, TypeScript, Node.js and modern UI.</p>
-          <p>Focused on clean code, performance and real-world solutions.</p>
-          <p>React • TypeScript • Node.js • Tailwind</p>
+        <div className={"mb-6 text-foreground space-y-2 max-w-[500px]"}>
+          I specialize in building scalable applications with React, TypeScript,
+          and modern UI libraries. Focused on clean code, smooth performance,
+          and pixel-perfect implementation.
         </div>
         <p></p>
         {/*<div className="flex gap-4">*/}
