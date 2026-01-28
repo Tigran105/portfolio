@@ -1,22 +1,24 @@
 # Tigran.dev
 
-Personal portfolio of Tigran — Frontend / Full-Stack Developer  
-React • Next.js • Angular • Node.js
+Personal portfolio of Tigran - Frontend Developer  
+React • Next.js • React Native • TypeScript 
 
 ---
 
 ## About
 
-Hi, I’m Tigran 👋  
-Frontend / Full-Stack Developer with 5+ years of experience building modern, fast, and maintainable web applications.
+Hi, I’m Tigran
+Front-End Developer crafting immersive web experiences
 
-I focus on clean UI, scalable architecture, and real business value.
+I specialize in building scalable applications with React, TypeScript, and
+modern UI libraries. Focused on clean code, smooth performance, and
+pixel-perfect implementation.
 
 ---
 
 ## Live & Links
 
-🌐 Website: https://tigran.dev  
+🌐 Website: https://tigran-dev.com  
 💼 LinkedIn: https://www.linkedin.com/in/tigran-sargsyan105/  
 🐙 GitHub: https://github.com/Tigran105
 

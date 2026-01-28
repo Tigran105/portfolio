@@ -43,7 +43,7 @@ export default function Experience() {
   return (
     <Section
       heading="Experience"
-      subheading="A collection of UI systems and applications I've built — focused on real interaction, clean architecture, and modern engineering."
+      subheading="A collection of UI systems and applications I've built - focused on real interaction, clean architecture, and modern engineering."
       background="section"
     >
       <Divider className="my-16 sm:my-20" />
@@ -109,7 +109,12 @@ export default function Experience() {
             {item.description &&
               item.description.map((description, idx) => (
                 <p key={idx} className="mt-2 text-foreground/80">
-                  {description}
+                  {description}{" "}
+                  {item.id === 4 && (
+                    <a href="https://www.mtad.am/" target={"_blank"}>
+                      https://www.mtad.am/
+                    </a>
+                  )}
                 </p>
               ))}
 

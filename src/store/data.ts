@@ -37,7 +37,7 @@ export const useData = create<PortfolioData>(() => ({
         "redux toolkit",
       ],
       description: [
-        "Led frontend development of web and mobile apps using React / React Native. Built scalable UI and integrated 3D components with Three.js (360° Viewer). Developed a platform where users could customize room—change floors, walls, and add decorations interactively. Owned feature lifecycle, improved frontend skills, and collaborated with design, backend, and product teams.",
+        "Led frontend development of web and mobile apps using React / React Native. Built scalable UI and integrated 3D components with Three.js (360° Viewer). Developed a platform where users could customize room-change floors, walls, and add decorations interactively. Owned feature lifecycle, improved frontend skills, and collaborated with design, backend, and product teams.",
         "Built a scalable admin panel for the room customization platform. Integrated analytics dashboards and charts, implemented role-based access, managed interlinked product categories and subcategories, and added payment integration with Stripe. Collaborated with backend and product teams to ensure smooth data flow and maintainable architecture.",
         "Developed a mobile app that allows users to capture multiple photos of a room from several central points and view it in 360°. Implemented UI guidance showing where to position the phone, with automatic photo capture for precise results. Built interactive 360° viewing and ensured smooth user experience across devices.",
       ],
@@ -103,7 +103,7 @@ export const useData = create<PortfolioData>(() => ({
         "backend integration",
       ],
       description: [
-        "Developed and enhanced the admin panel used by the Ministry of Territorial Administration and Infrastructure. Built flexible UI components and implemented dynamic structure control, allowing administrators to modify interface elements and content. Worked closely with backend APIs to ensure full functionality and smooth UI experience. Project website: https://www.mtad.am/",
+        "Developed and enhanced the admin panel used by the Ministry of Territorial Administration and Infrastructure. Built flexible UI components and implemented dynamic structure control, allowing administrators to modify interface elements and content. Worked closely with backend APIs to ensure full functionality and smooth UI experience. Project website: ",
       ],
     },
   ],

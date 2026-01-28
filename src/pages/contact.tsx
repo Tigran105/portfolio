@@ -63,7 +63,7 @@ export default function Contact() {
   return (
     <Section
       heading="Contact"
-      subheading="If you want to discuss a project, collaborate, or simply connect — feel free to reach out."
+      subheading="If you want to discuss a project, collaborate, or simply connect - feel free to reach out."
       background="section"
     >
       <Divider className="my-6 sm:my-10" />
